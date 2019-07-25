@@ -3,5 +3,6 @@
     <declare-styleable name="SqueezeLoader">
         <attr name="sl_colorSqueezebar" format="color"/>
         <attr name="sl_animationDuration" format="integer"/>
+        <attr name="sl_squeezebarWidth" format="dimension"/>
     </declare-styleable>
 </resources>

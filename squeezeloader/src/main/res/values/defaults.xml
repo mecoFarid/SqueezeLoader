@@ -5,7 +5,8 @@
     <integer name="sl_default_animation_time">1000</integer>
     <item name="sl_default_speed" format="float" type="string">1</item>
     <dimen name="sl_default_height">4dp</dimen>
-    <dimen name="sl_default_squeezebar_length">100dp</dimen>
-    <dimen name="sl_min_squeezebar_length">2dp</dimen>
-    <dimen name="sl_default_squeezeloader_legth">200dp</dimen>
+    <dimen name="sl_max_squeezebar_width">100dp</dimen>
+    <dimen name="sl_default_squeezebar_width">50dp</dimen>
+    <dimen name="sl_min_squeezebar_width">2dp</dimen>
+    <dimen name="sl_default_squeezeloader_width">200dp</dimen>
 </resources>

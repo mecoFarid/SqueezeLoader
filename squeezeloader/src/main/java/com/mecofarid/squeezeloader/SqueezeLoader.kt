@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
+import kotlin.math.min
 
 
 class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
@@ -15,13 +16,13 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
     defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr) {
 
     // Min width of SqueezeLoader: 200dp
-    val MIN_WIDTH_SQUEEZELOADER = resources.getDimension(R.dimen.sl_default_squeezeloader_legth).toInt()
-    // Default squeezebar width: 100dp
-    // NOTE: maximum visible squeezebar width vill be 50dp because th greatest squeezefactor vaulue is 0.5
-    // check out `squeezefactor` calculation logic in this file
-    val DEFAULT_WIDTH_SQUEEZEBAR = resources.getDimension(R.dimen.sl_default_squeezebar_length)
+    val MIN_WIDTH_SQUEEZELOADER = resources.getDimension(R.dimen.sl_default_squeezeloader_width).toInt()
+    // Default squeezebar width: 50dp
+    val DEFAULT_WIDTH_SQUEEZEBAR = resources.getDimension(R.dimen.sl_default_squeezebar_width)
+    // Maximum squeezebar width: 100dp
+    val MAX_WIDTH_SQUEEZEBAR = resources.getDimension(R.dimen.sl_max_squeezebar_width)
     // Min progressbar moving bar width when scaling: 2dp
-    val MIN_WIDTH_SQUEEZEBAR = resources.getDimension(R.dimen.sl_min_squeezebar_length)
+    val MIN_WIDTH_SQUEEZEBAR = resources.getDimension(R.dimen.sl_min_squeezebar_width)
     // Default height: 4dp
     val MIN_HEIGHT_SQUEEZEBAR = resources.getDimension(R.dimen.sl_default_height).toInt()
     // Default animation duration: 1 second(s)
@@ -33,6 +34,13 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
     // Animation duration cannot be less than minimum animation duration of this library
     val mAnimatioDuration = Math.max(attributes.getInteger(R.styleable.SqueezeLoader_sl_animationDuration,
         DEFAULT_ANIMATION_DURATION), DEFAULT_ANIMATION_DURATION).toLong()
+    // NOTE: maximum visible squeezebar width would be half of given value because the greatest squeezefactor
+    // value is 0.5. That's why I'm multiplying it by 2 check out `squeezefactor` calculation logic in this file
+    // PLUS: Max width of SqueezeBar cannot be biger than MAX_WIDTH_SQUEEZEBAR
+    val mSqueezebarWidth = 2 * min(
+        attributes.getDimension(R.styleable.SqueezeLoader_sl_squeezebarWidth, DEFAULT_WIDTH_SQUEEZEBAR),
+        MAX_WIDTH_SQUEEZEBAR)
+
     //init paint with custom attrs
     var mSqueezebarPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = mSqueezebarColor
@@ -46,6 +54,7 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
             invalidate()
         }
     private var mAnimationFraction = 0f
+    private var mSqueezebarHeight = 0
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
@@ -58,6 +67,8 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        // Math squeezebar's height to SqueezzeLoader view's height
+        mSqueezebarHeight = Math.max(MIN_HEIGHT_SQUEEZEBAR, h)
         mSqueezebarAnimator = ValueAnimator.ofFloat(0f, w.toFloat()).apply {
             addUpdateListener {
                 mSqueezebarDisplacement = it.animatedValue as Float
@@ -102,14 +113,14 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
     }
 
     fun drawSqueezebar(canvas: Canvas, centerPositionX: Float, squeezeFactor: Float){
-        val leftPositionX = centerPositionX - squeezeFactor*DEFAULT_WIDTH_SQUEEZEBAR/2f
-        val rightPositionX = centerPositionX + squeezeFactor*DEFAULT_WIDTH_SQUEEZEBAR/2f
+        val leftPositionX = centerPositionX - squeezeFactor*mSqueezebarWidth/2f
+        val rightPositionX = centerPositionX + squeezeFactor*mSqueezebarWidth/2f
 
         val rectf = RectF().apply {
             left = leftPositionX
             top = 0F
             right = rightPositionX
-            bottom = MIN_HEIGHT_SQUEEZEBAR.toFloat()
+            bottom = mSqueezebarHeight.toFloat()
         }
         canvas.drawRect(rectf, mSqueezebarPaint)
     }
