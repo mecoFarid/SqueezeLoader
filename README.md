@@ -24,7 +24,7 @@ allprojects {
 ```
 dependencies {
     ...  
-    implementation 'com.github.mecofarid:squeezeloader:1.0.0-beta'
+    implementation 'com.github.mecoFarid:squeezeloader:1.0.1-alpha'
 }
 ```
 ### 2.Troubleshooting
