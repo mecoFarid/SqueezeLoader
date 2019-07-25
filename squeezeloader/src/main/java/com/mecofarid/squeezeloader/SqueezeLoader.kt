@@ -15,7 +15,7 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
     defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr) {
 
     // Min width of SqueezeLoader: 200dp
-    val MIN_WIDTH_SQUEEZELOADER = resources.getDimension(R.dimen.sl_squeezeloader_default_legth).toInt()
+    val MIN_WIDTH_SQUEEZELOADER = resources.getDimension(R.dimen.sl_default_squeezeloader_legth).toInt()
     // Default squeezebar width: 100dp
     // NOTE: maximum visible squeezebar width vill be 50dp because th greatest squeezefactor vaulue is 0.5
     // check out `squeezefactor` calculation logic in this file

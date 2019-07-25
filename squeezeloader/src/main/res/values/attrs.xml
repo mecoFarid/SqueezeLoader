@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="SqueezeLoader">
-        <attr name="sl_colorSqueezebar" format ="integer"/>
+        <attr name="sl_colorSqueezebar" format="color"/>
         <attr name="sl_animationDuration" format="integer"/>
     </declare-styleable>
 </resources>

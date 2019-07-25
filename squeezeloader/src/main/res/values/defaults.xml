@@ -4,9 +4,8 @@
     <integer name="sl_default_interpolator">0</integer>
     <integer name="sl_default_animation_time">1000</integer>
     <item name="sl_default_speed" format="float" type="string">1</item>
-    <bool name="sl_default_reversed">false</bool>
     <dimen name="sl_default_height">4dp</dimen>
     <dimen name="sl_default_squeezebar_length">100dp</dimen>
     <dimen name="sl_min_squeezebar_length">2dp</dimen>
-    <dimen name="sl_squeezeloader_default_legth">200dp</dimen>
+    <dimen name="sl_default_squeezeloader_legth">200dp</dimen>
 </resources>

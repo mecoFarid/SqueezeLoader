@@ -11,7 +11,8 @@ android:gravity="center">
 
     <com.mecofarid.squeezeloader.SqueezeLoader android:layout_width="match_parent"
                                                android:id="@+id/loader1"
-                                               android:layout_height="wrap_content"/>
+                                               android:layout_height="wrap_content"
+                                               app:sl_colorSqueezebar="@android:color/holo_blue_light"/>
 
 
 </LinearLayout>
