@@ -45,12 +45,7 @@
     <last-search-timestamp>1563952428823</last-search-timestamp>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdd4ca3d-50a7-44d2-a8a4-0472c53fd1b0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_media/library_logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/extra_media/library_logo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/squeezeloader/src/main/res/values/attrs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/squeezeloader/src/main/res/values/attrs.xml" afterDir="false" />
-    </list>
+    <list default="true" id="fdd4ca3d-50a7-44d2-a8a4-0472c53fd1b0" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +76,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/squeezeloader/src/main/java/com/mecofarid/squeezeloader/SqueezeLoader.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
@@ -101,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="70">
-              <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -119,7 +114,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+              <caret line="14" column="101" selection-start-line="14" selection-start-column="101" selection-end-line="14" selection-end-column="101" />
             </state>
           </provider>
           <provider editor-type-id="android-designer2" />
@@ -143,11 +138,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/squeezeloader/src/main/res/values/defaults.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="17" selection-start-column="17" selection-end-column="17" />
+            <state relative-caret-position="150">
+              <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -178,6 +173,7 @@
       <find>Squeezable</find>
       <find>DEFAULT_ANIMATION_DURATION</find>
       <find>mSqueezebarColor</find>
+      <find>getColor</find>
     </findStrings>
     <replaceStrings>
       <replace>Squeeze</replace>
@@ -203,11 +199,11 @@
         <option value="$PROJECT_DIR$/squeezeloader/src/main/java/com/mecofarid/squeezeloader/CustomAccelerateDecelerateInterpolator.java" />
         <option value="$PROJECT_DIR$/squeezeloader/src/main/java/com/mecofarid/squeezeloader/j.java" />
         <option value="$PROJECT_DIR$/squeezeloader/src/main/java/com/mecofarid/squeezeloader/CustomAccelerateDecelerateInterpolator.kt" />
-        <option value="$PROJECT_DIR$/squeezeloader/src/main/res/values/defaults.xml" />
         <option value="$PROJECT_DIR$/squeezeloader/src/main/java/com/mecofarid/squeezeloader/SqueezeLoader.kt" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/squeezeloader/src/main/res/values/attrs.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/squeezeloader/src/main/res/values/defaults.xml" />
       </list>
     </option>
   </component>
@@ -434,9 +430,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.3297568" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.3297568" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -449,7 +446,7 @@
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.2874845" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Buck" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" visible="true" weight="0.32961586" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="4" visible="true" weight="0.32961586" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.28624535" />
@@ -636,13 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/squeezeloader/src/main/res/values/defaults.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mecofarid/squeezeloadertestapp/MainActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -660,22 +650,7 @@
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/squeezeloader/src/main/res/values/attrs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -690,6 +665,28 @@
             <element signature="e#1027#1083#0" expanded="true" />
             <element signature="e#1285#1342#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="101" selection-start-line="14" selection-start-column="101" selection-end-line="14" selection-end-column="101" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/squeezeloader/src/main/res/values/attrs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/squeezeloader/src/main/res/values/defaults.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
         </state>
       </provider>
     </entry>
