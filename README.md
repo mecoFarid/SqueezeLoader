@@ -28,7 +28,7 @@ dependencies {
 }
 ```
 ### 2.Troubleshooting
-If you get and error similar to:
+If you get an error similar to:
 ```
 Error: Default interface methods are only supported starting with Android N (--min-api 24): android.view.MenuItem androidx.core.internal.view.SupportMenuItem.setContentDescription(java.lang.CharSequence)
 ```
@@ -40,3 +40,26 @@ compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 ```
+### 3. Code example
+After integrating the library to your app you can use the `SqueezeLoader` in your xml as below:
+```
+<com.mecofarid.squeezeloader.SqueezeLoader
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sl_squeezebarWidth="50dp"
+            app:sl_animationDuration="1000"
+            app:sl_colorSqueezebar="@color/colorPrimary"/>
+```
+### 4. Attribute explanation and values
+**Minumum/Maximum values for:** 
+
+| Atribute name              | Default          | Minimum   |             Maximum | 
+|     :---                   |      :---        | :---      |     :---            |
+| app:sl_animationDuration   | 1000ms           | 1000ms    | No restriction      |
+| android:layout_width       | parent's width   | 200dp     | parent's width      |
+| app:sl_squeezebarWidth     | 50dp             | 2dp       | 100dp               |
+
+
+
+## Notes:
+If you place SqueezeLoader in a parent view with `android:layout_width` less than `200dp` it will inherite parent's `width` in this case `SqueezeLoader` can be less than `200dp`
