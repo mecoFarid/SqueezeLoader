@@ -9,9 +9,20 @@ SqueezeLoader is a tiny custom Loader (ProgressBar)
 ## Integration
 Min API level is: `API 14`
 
+**Step 1.** Add it in your root build.gradle at the end of repositories:
+
+```
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+**Step 2.** Add the dependency
 ```
 dependencies {
-    // Change x.x.x to library version provided
-    implementation 'com.github.mecofarid:squeezeloader:x.x.x'
+    ...  
+    implementation 'com.github.mecofarid:squeezeloader:1.0.0-beta'
 }
 ```
