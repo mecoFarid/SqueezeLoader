@@ -42,6 +42,8 @@ compileOptions {
 ```
 ### 3. Code example
 After integrating the library to your app you can use the `SqueezeLoader` in your xml as below:
+
+`SqueezeLoader` is the Layout that fast-moving/squeezing `SqueezeBar` animates through. Look at the gif above fro reference, the fast moving bar is called `SqueezeBar`
 ```
 <com.mecofarid.squeezeloader.SqueezeLoader
             android:layout_width="wrap_content"
