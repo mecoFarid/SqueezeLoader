@@ -2,9 +2,9 @@
 <resources>
     <color name="sl_default_color">#000000</color>
     <integer name="sl_default_interpolator">0</integer>
-    <integer name="sl_default_animation_time">1000</integer>
+    <integer name="sl_default_animation_time">1100</integer>
     <item name="sl_default_speed" format="float" type="string">1</item>
-    <dimen name="sl_default_height">4dp</dimen>
+    <dimen name="sl_default_height">2dp</dimen>
     <dimen name="sl_max_squeezebar_width">100dp</dimen>
     <dimen name="sl_default_squeezebar_width">50dp</dimen>
     <dimen name="sl_min_squeezebar_width">2dp</dimen>

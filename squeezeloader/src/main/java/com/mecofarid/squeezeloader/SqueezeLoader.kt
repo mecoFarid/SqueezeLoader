@@ -5,6 +5,8 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AccelerateInterpolator
 import androidx.core.content.ContextCompat
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import kotlin.math.min
@@ -71,13 +73,18 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
         mSqueezebarHeight = Math.max(MIN_HEIGHT_SQUEEZEBAR, h)
         mSqueezebarAnimator = ValueAnimator.ofFloat(0f, w.toFloat()).apply {
             addUpdateListener {
-                mSqueezebarDisplacement = it.animatedValue as Float
+                mSqueezebarDisplacement = (it.animatedValue as Float)
                 mAnimationFraction = it.animatedFraction
+                if (mSqueezebarDisplacement<=1 || (mSqueezebarDisplacement>=170&&mSqueezebarDisplacement<=190) ||
+                    (mSqueezebarDisplacement>=350&&mSqueezebarDisplacement<=370) ||
+                    (mSqueezebarDisplacement>=470&&mSqueezebarDisplacement<=490) || mSqueezebarDisplacement>=716) {
+                    println("Josiah time " + mAnimationFraction + "                   " + mSqueezebarDisplacement)
+                }
             }
             duration = mAnimatioDuration
             repeatMode = ValueAnimator.REVERSE
             repeatCount = ValueAnimator.INFINITE
-            interpolator = FastOutSlowInInterpolator()
+            interpolator = EaseInOutQuintInterpolator()
             start()
         }
     }
