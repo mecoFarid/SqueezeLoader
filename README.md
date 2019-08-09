@@ -4,7 +4,7 @@ SqueezeLoader is a tiny custom Loader (ProgressBar)
 ![alt Library Logo](https://raw.githubusercontent.com/mecoFarid/SqueezeLoader/master/extra_media/library_logo.jpg)
 
 ## Demo
-![alt SqueezeLoader demo gif](https://raw.githubusercontent.com/mecoFarid/SqueezeLoader/master/extra_media/squeezeloader.gif)
+![alt SqueezeLoader demo gif](https://raw.githubusercontent.com/mecoFarid/SqueezeLoader/master/extra_media/squeeze_loader.gif)
 
 ## Usage
 ### 1. Integration
