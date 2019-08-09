@@ -2,7 +2,7 @@ package com.mecofarid.squeezeloader
 
 import android.view.animation.Interpolator
 
-class EaseInOutQuintInterpolator : Interpolator {
+class EaseInOutCubicInterpolator : Interpolator {
 
     // easeInOutQuint
     override fun getInterpolation(t: Float): Float {

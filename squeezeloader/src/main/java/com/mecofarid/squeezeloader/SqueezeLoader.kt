@@ -5,10 +5,7 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
-import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.AccelerateInterpolator
 import androidx.core.content.ContextCompat
-import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import kotlin.math.min
 
 
@@ -84,7 +81,7 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
             duration = mAnimatioDuration
             repeatMode = ValueAnimator.REVERSE
             repeatCount = ValueAnimator.INFINITE
-            interpolator = EaseInOutQuintInterpolator()
+            interpolator = EaseInOutCubicInterpolator()
             start()
         }
     }
