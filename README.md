@@ -55,11 +55,12 @@ After integrating the library to your app you can use the `SqueezeLoader` in you
 ### 4. Attribute explanation and values
 **Minumum/Maximum values for:** 
 
-| Atribute name              | Default          | Minimum   |             Maximum | 
-|     :---                   |      :---        | :---      |     :---            |
-| app:sl_animationDuration   | 1000ms           | 1000ms    | No restriction      |
-| android:layout_width       | parent's width   | 200dp     | parent's width      |
-| app:sl_squeezebarWidth     | 50dp             | 2dp       | 100dp               |
+| Atribute name              | Default          | Minimum         |             Maximum | 
+|     :---                   |      :---        | :---            |     :---            |
+| app:sl_animationDuration   | 1100ms           | 1100ms          | No restriction      |
+| android:layout_width       | parent's width   | 200dp           | parent's width      |
+| app:sl_squeezebarWidth     | 50dp             | 2dp             | 100dp               |
+| android:layout_height      | 2dp              | No restriction  | parent's width      |
 
 
 
