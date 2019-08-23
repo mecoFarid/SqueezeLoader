@@ -3,16 +3,20 @@ package com.mecofarid.squeezeloader
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
+import android.widget.ProgressBar
+import androidx.annotation.UiThread
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import kotlin.math.min
 
 
 class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr) {
+    defStyleAttr: Int = 0): ProgressBar(context, attrs, defStyleAttr) {
 
     // Min width of SqueezeLoader: 200dp
     val MIN_WIDTH_SQUEEZELOADER = resources.getDimension(R.dimen.sl_default_squeezeloader_width).toInt()
@@ -30,11 +34,13 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
     val attributes = context.obtainStyledAttributes(attrs, R.styleable.SqueezeLoader, defStyleAttr, 0)
     val mSqueezebarColor = attributes.getColor(R.styleable.SqueezeLoader_sl_colorSqueezebar,
         ContextCompat.getColor(context, R.color.sl_default_color))
+
     // Animation duration cannot be less than minimum animation duration of this library
     val mAnimatioDuration = Math.max(attributes.getInteger(R.styleable.SqueezeLoader_sl_animationDuration,
         DEFAULT_ANIMATION_DURATION), DEFAULT_ANIMATION_DURATION).toLong()
+
     // NOTE: maximum visible squeezebar width would be half of given value because the greatest squeezefactor
-    // value is 0.5. That's why I'm multiplying it by 2 check out `squeezefactor` calculation logic in this file
+    // value is 0.5. That's why we're multiplying it by 2 check out `squeezefactor` calculation logic in this file
     // PLUS: Max width of SqueezeBar cannot be biger than MAX_WIDTH_SQUEEZEBAR
     val mSqueezebarWidth = 2 * min(
         attributes.getDimension(R.styleable.SqueezeLoader_sl_squeezebarWidth, DEFAULT_WIDTH_SQUEEZEBAR),
@@ -46,11 +52,12 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
         style = Paint.Style.FILL_AND_STROKE
         strokeWidth = MIN_WIDTH_SQUEEZEBAR
     }
+
     var mSqueezebarAnimator: ValueAnimator? = null
     private var mSqueezebarDisplacement = 0f
         set(value) {
             field = value
-            invalidate()
+            ViewCompat.postInvalidateOnAnimation(this)
         }
     private var mAnimationFraction = 0f
     private var mSqueezebarHeight = 0
@@ -65,18 +72,25 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
         super.onDetachedFromWindow()
     }
 
+    override fun onWindowVisibilityChanged(visibility: Int) {
+        super.onWindowVisibilityChanged(visibility)
+        mSqueezebarAnimator?.let {
+            if (it.isStarted && visibility in setOf(View.INVISIBLE, View.GONE)){
+                it.cancel()
+            }else if (it.isStarted.not() && visibility == View.VISIBLE) {
+                it.start()
+            }
+        }
+    }
+
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
-        // Math squeezebar's height to SqueezzeLoader view's height
+        // Match squeezebar's height to SqueezzeLoader view's height
         mSqueezebarHeight = Math.max(MIN_HEIGHT_SQUEEZEBAR, h)
         mSqueezebarAnimator = ValueAnimator.ofFloat(0f, w.toFloat()).apply {
             addUpdateListener {
                 mSqueezebarDisplacement = (it.animatedValue as Float)
                 mAnimationFraction = it.animatedFraction
-                if (mSqueezebarDisplacement<=1 || (mSqueezebarDisplacement>=170&&mSqueezebarDisplacement<=190) ||
-                    (mSqueezebarDisplacement>=350&&mSqueezebarDisplacement<=370) ||
-                    (mSqueezebarDisplacement>=470&&mSqueezebarDisplacement<=490) || mSqueezebarDisplacement>=716) {
-                    println("Josiah time " + mAnimationFraction + "                   " + mSqueezebarDisplacement)
-                }
+                println("Josiah animation ")
             }
             duration = mAnimatioDuration
             repeatMode = ValueAnimator.REVERSE
@@ -86,8 +100,8 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
         }
     }
 
+    @Synchronized
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-
         val widthSize = MeasureSpec.getSize(widthMeasureSpec)
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         val heightSize = MeasureSpec.getSize(heightMeasureSpec)
@@ -102,13 +116,15 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
             height = heightSize;
         } else {
             //Height cannot be less than minimum SqueezeLoader height
-           height = Math.min(MIN_HEIGHT_SQUEEZEBAR, heightSize)
+            height = Math.min(MIN_HEIGHT_SQUEEZEBAR, heightSize)
         }
         //MUST CALL THIS
         setMeasuredDimension(width, height)
     }
 
+    @Synchronized
     override fun onDraw(canvas: Canvas) {
+        println("Josiah ondraw")
         super.onDraw(canvas)
         //draw Squeezebar
         val currentCenterPositionX = mSqueezebarDisplacement
