@@ -90,7 +90,6 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
             addUpdateListener {
                 mSqueezebarDisplacement = (it.animatedValue as Float)
                 mAnimationFraction = it.animatedFraction
-                println("Josiah animation ")
             }
             duration = mAnimatioDuration
             repeatMode = ValueAnimator.REVERSE
@@ -124,7 +123,6 @@ class SqueezeLoader @kotlin.jvm.JvmOverloads constructor(
 
     @Synchronized
     override fun onDraw(canvas: Canvas) {
-        println("Josiah ondraw")
         super.onDraw(canvas)
         //draw Squeezebar
         val currentCenterPositionX = mSqueezebarDisplacement
